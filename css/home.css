@@ -1,0 +1,236 @@
+/*
+ * ===================================================================
+ * SF Lecture One 테마 - 블로그 홈 전용 스타일시트
+ * -------------------------------------------------------------------
+ * 이 파일은 index.php 템플릿의 모든 시각적 요소를 제어합니다.
+ * ===================================================================
+ */
+
+/* ==========================================================================
+   1. 메인 레이아웃 (archive-lecture.css 참고)
+   ========================================================================== */
+/* 
+ * .home .sf-lt-one-content-area-full
+ * - .home: body 태그에 있는 클래스로, 이 스타일이 블로그 홈에서만 적용되도록 한정합니다.
+ * - max-width: 1200px: 콘텐츠의 최대 너비를 제한하여 가독성을 높입니다.
+ * - margin: 0 auto 2rem: 
+ *   - top: 0; GNB 헤더 바로 아래부터 콘텐츠가 시작되도록 상단 외부 여백을 제거합니다.
+ *   - auto: 좌우 여백을 자동으로 설정하여 중앙에 정렬합니다.
+ *   - bottom: 2rem; 푸터와의 간격을 확보합니다.
+ */
+.home .sf-lt-one-content-area-full {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+/* ==========================================================================
+   2. 상단 고정 검색창 (archive-lecture.css 참고)
+   ========================================================================== */
+/*
+ * .home .sf-lt-one-page-header
+ * - position: sticky: 스크롤 시 이 요소가 특정 위치에 도달하면 화면에 고정됩니다.
+ * - top: 0: 스크롤 시 화면 최상단(뷰포트의 top: 0)에 붙으라는 의미입니다. 
+ *          (GNB 헤더는 스크롤과 함께 자연스럽게 사라지는 것이 기본 동작입니다.)
+ * - margin: -2rem -2rem 2rem: 
+ *   - top/left/right: 부모 요소(.sf-lt-one-content-area-full)의 padding(2rem)을 무시하고
+ *     좌우를 꽉 채우기 위해 음수 마진을 사용합니다.
+ *   - bottom: 2rem; 아래에 위치할 글 목록과의 간격을 확보합니다.
+ * - width: calc(100% + 4rem): 음수 마진으로 줄어든 너비를 다시 원래대로 복원합니다.
+ */
+.home .sf-lt-one-page-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 998;
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin: -2rem -2rem 2rem;
+    width: calc(100% + 4rem);
+}
+
+/* 로그인하여 관리자 툴바(높이 32px)가 표시될 경우, 그 아래에 붙도록 top 위치를 조정합니다. */
+body.admin-bar .home .sf-lt-one-page-header {
+    top: 32px;
+}
+
+.home .sf-lt-one-search-page-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.home .sf-lt-one-search-page-form__input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+}
+
+.home .sf-lt-one-search-page-form__input:focus {
+    border-color: #0073aa;
+    outline: none;
+}
+
+.home .sf-lt-one-search-page-form__button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   3. 글 목록 카드 디자인 (archive-lecture.css 참고)
+   ========================================================================== */
+.home .sf-lt-one-lecture-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.home .sf-lt-one-lecture-item {
+    display: flex;
+    gap: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.home .sf-lt-one-lecture-item:hover {
+    border-color: #c0c0c0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+}
+
+/* 3.1 썸네일 영역 */
+.home .sf-lt-one-lecture-item__thumbnail {
+    flex: 0 0 240px;
+    width: 240px;
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.home .sf-lt-one-lecture-item__thumbnail a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+
+.home .sf-lt-one-lecture-item__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home .sf-lt-one-lecture-item__placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #fca904;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.home .sf-lt-one-lecture-item__title-overlay {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 8px #fff;
+    line-height: 1.3;
+}
+
+/* 3.2 콘텐츠 영역 */
+.home .sf-lt-one-lecture-item__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.home .sf-lt-one-entry-header {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.home .sf-lt-one-entry-title {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem;
+}
+
+.home .sf-lt-one-entry-title a {
+    text-decoration: none;
+    color: #222;
+}
+
+.home .sf-lt-one-entry-title a:hover {
+    color: #0073aa;
+}
+
+.home .sf-lt-one-lecture-item__excerpt {
+    color: #555;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.home .sf-lt-one-lecture-item__footer {
+    font-size: 0.9rem;
+    color: #777;
+    display: flex;
+    align-items: center;
+}
+
+.home .sf-lt-one-footer-separator {
+    margin: 0 0.5rem;
+}
+
+
+/* ==========================================================================
+   4. 반응형 (Responsive)
+   ========================================================================== */
+/* 화면 너비가 991px 이하일 때 */
+@media screen and (max-width: 991px) {
+    .home .sf-lt-one-content-area-full {
+        margin: 0;
+        padding: 1rem;
+    }
+    .home .sf-lt-one-page-header {
+        width: calc(100% + 2rem);
+        margin: -1rem -1rem 1rem;
+    }
+}
+
+/* 화면 너비가 768px 이하일 때 (태블릿, 모바일) */
+@media screen and (max-width: 768px) {
+    .home .sf-lt-one-lecture-item {
+        flex-direction: column;
+    }
+    .home .sf-lt-one-lecture-item__thumbnail {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 240 / 160; /* 썸네일 비율 유지 */
+    }
+}

@@ -1,0 +1,89 @@
+/*
+ * ===================================================================
+ * SF Lecture One 테마 - 일반 글(Post) 상세 페이지 전용 스타일시트
+ * -------------------------------------------------------------------
+ * 이 파일은 single.php 템플릿의 모든 시각적 요소를 제어합니다.
+ * ===================================================================
+ */
+
+/* ==========================================================================
+   1. 메인 콘텐츠 영역 레이아웃
+   ========================================================================== */
+/*
+ * .sf-lt-one-content-area
+ * - 글 전체를 감싸는 메인 컨테이너입니다.
+ * - max-width: [수정됨] 가독성을 위해 본문의 최대 너비를 964px로 확장했습니다.
+ * - margin: auto를 사용하여 페이지 중앙에 위치시킵니다.
+ * - padding: [수정됨] 콘텐츠와 테두리 사이의 여백을 조정했습니다. (상하 2rem, 좌우 3rem)
+ */
+.sf-lt-one-content-area {
+    max-width: 964px;
+    margin: 2rem auto;
+    padding: 2rem 3rem;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   2. 글 헤더 (제목, 메타 정보)
+   ========================================================================== */
+.sf-lt-one-entry-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.sf-lt-one-entry-title {
+    margin: 0;
+    font-size: 2.2rem; /* 제목 폰트 크기 */
+    line-height: 1.3;
+}
+
+.sf-lt-one-entry-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 1rem;
+}
+
+.sf-lt-one-entry-meta span + span::before {
+    content: " | ";
+    margin: 0 0.5em;
+}
+
+/* ==========================================================================
+   3. 글 본문 및 푸터
+   ========================================================================== */
+.sf-lt-one-entry-content p {
+    margin-bottom: 1.5em;
+}
+
+/* 코드 블록 스타일은 global.css의 스타일을 따릅니다. */
+
+.sf-lt-one-entry-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* 이전/다음 글 네비게이션 */
+.post-navigation {
+    margin: 3rem 0 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+/* ==========================================================================
+   4. 반응형 (Responsive)
+   ========================================================================== */
+/* 화면 너비가 1024px 이하일 때 (태블릿, 모바일) */
+@media screen and (max-width: 1024px) {
+    .sf-lt-one-content-area {
+        margin: 1rem;
+        /* [수정됨] 모바일 환경에서 좌우 여백을 20px로 확보합니다. */
+        padding: 1.5rem 20px;
+    }
+
+    .sf-lt-one-entry-title {
+        font-size: 1.8rem;
+    }
+}

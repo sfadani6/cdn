@@ -1,0 +1,35 @@
+/* ==========================================================================
+   1. 기본 글/아카이브 스타일
+   - [적용]: index.php, archive.php
+   ========================================================================== */
+.sf-lt-one-post-summary {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #eee;
+}
+.sf-lt-one-post-summary:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   2. 글 상세 페이지 스타일
+   - [적용]: single.php
+   ========================================================================== */
+.sf-lt-one-entry-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.5rem;
+}
+.sf-lt-one-entry-meta span + span::before {
+    content: " | ";
+    margin: 0 0.5em;
+}
+.sf-lt-one-entry-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+.post-navigation {
+    margin: 2rem 0;
+}

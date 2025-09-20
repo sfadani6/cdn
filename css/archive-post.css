@@ -1,0 +1,134 @@
+/* 일반 글 목록(아카이브, 블로그 홈) 전용 스타일 */
+.sf-lt-one-content-area { max-width: 800px; margin: 2rem auto; padding: 2rem; background-color: #fff; border: 1px solid #e5e5e5; border-radius: 4px; }
+.sf-lt-one-post-summary { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid #eee; }
+.sf-lt-one-post-summary:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.sf-lt-one-entry-header { margin-bottom: 1rem; border-bottom: none; padding-bottom: 0; } /* 상세 페이지와 스타일 약간 다르게 */
+.sf-lt-one-entry-title { margin: 0; font-size: 1.5rem; }
+@media screen and (max-width: 991px) { .sf-lt-one-content-area { margin: 1rem; padding: 1rem; } }
+
+/* ==========================================================================
+   페이징(Pagination) 스타일 (신규 추가)
+   ========================================================================== */
+.navigation.pagination {
+    margin-top: 3rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.navigation.pagination .nav-links {
+    display: flex;
+    flex-wrap: wrap; /* 화면이 좁을 때 줄바꿈 허용 */
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* 버튼 사이의 간격 */
+}
+
+/* 모든 버튼(링크, 현재 페이지, ...)의 기본 스타일 */
+.navigation.pagination .page-numbers {
+    display: inline-flex; /* 내부 텍스트를 정중앙에 배치하기 위함 */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 44px;  /* 최소 너비 (터치 영역 확보) */
+    height: 44px;     /* 높이 (터치 영역 확보) */
+    padding: 0 0.5rem; /* '이전','다음' 같이 긴 텍스트를 위해 좌우 여백 */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #555;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 클릭 가능한 버튼에 마우스를 올렸을 때 */
+.navigation.pagination .page-numbers:not(.current):not(.dots):hover,
+.navigation.pagination .page-numbers:not(.current):not(.dots):focus {
+    border-color: #0073aa;
+    background-color: #f0f8ff; /* 매우 연한 파란색 */
+    color: #0073aa;
+    transform: translateY(-2px); /* 살짝 떠오르는 효과 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* 현재 페이지를 나타내는 버튼 */
+.navigation.pagination .page-numbers.current {
+    background-color: #0073aa;
+    border-color: #0073aa;
+    color: #fff;
+    font-weight: bold;
+    cursor: default; /* 클릭할 수 없음을 표시 */
+}
+
+/* 생략(...) 부호 스타일 */
+.navigation.pagination .page-numbers.dots {
+    border: none;
+    background: none;
+    cursor: default;
+    box-shadow: none;
+}
+
+
+/* 모바일 화면을 위한 미세 조정 */
+@media screen and (max-width: 768px) {
+    .navigation.pagination .nav-links {
+        gap: 0.3rem;
+    }
+    .navigation.pagination .page-numbers {
+        min-width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ==========================================================================
+   아카이브 페이지 상단 고정 헤더 (신규 추가)
+   ========================================================================== */
+.archive .sf-lt-one-page-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 998;
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    margin: -2rem -2rem 2rem; /* 상하좌우 패딩 무시 */
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.archive .sf-lt-one-page-header .sf-lt-one-page-title {
+    margin-bottom: 1rem;
+}
+
+.archive .sf-lt-one-search-page-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.archive .sf-lt-one-search-page-form__input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+.archive .sf-lt-one-search-page-form__button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 반응형 */
+@media screen and (max-width: 991px) {
+    .archive .sf-lt-one-page-header {
+        margin: -1rem -1rem 1rem;
+        padding: 1rem;
+    }
+}
